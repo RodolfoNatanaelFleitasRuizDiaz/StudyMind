@@ -1,4 +1,5 @@
 # StudyMind
+<<<<<<< HEAD
 
 Aplicación web educativa desarrollada con PHP, MySQL, HTML, CSS y JavaScript.
 
@@ -16,3 +17,6 @@ Aplicación web educativa desarrollada con PHP, MySQL, HTML, CSS y JavaScript.
 
 ## Importante
 La cuenta demo se crea con el script `assets/database/seed_demo.php`. Cambiar sus credenciales antes de cualquier despliegue público. Esta versión es para demostración local.
+=======
+Plataforma web de estudio interactiva para organizar materias, crear cuestionarios y seguir el progreso académico. 📚🧸
+>>>>>>> 6bc5f6b90557ccf924dac8c606c5434b7293641d
