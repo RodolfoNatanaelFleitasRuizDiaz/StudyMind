@@ -8,7 +8,7 @@ $pageTitle = $pageTitle ?? 'StudyMind';
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= htmlspecialchars($pageTitle) ?> | StudyMind</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?= $assetPrefix ?? '../' ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?= $assetPrefix ?? '../' ?>assets/css/style.css" rel="stylesheet">
 </head>
 <body class="<?= htmlspecialchars($bodyClass ?? '') ?>">
