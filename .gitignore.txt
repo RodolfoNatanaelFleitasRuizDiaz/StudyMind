@@ -1,0 +1,17 @@
+# Archivos temporales
+*.log
+*.tmp
+*.bak
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configuración local y secretos
+.env
+.env.*
+
+# Dependencias y cachés
+/vendor/
+/node_modules/

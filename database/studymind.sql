@@ -1,0 +1,65 @@
+CREATE DATABASE IF NOT EXISTS studymind CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE studymind;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ nombre VARCHAR(100) NOT NULL,
+ email VARCHAR(150) NOT NULL UNIQUE,
+ password VARCHAR(255) NOT NULL,
+ es_demo TINYINT(1) NOT NULL DEFAULT 0,
+ fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS materias (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ usuario_id INT NOT NULL,
+ nombre VARCHAR(100) NOT NULL,
+ descripcion TEXT NULL,
+ fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS temas (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ materia_id INT NOT NULL,
+ nombre VARCHAR(150) NOT NULL,
+ descripcion TEXT NULL,
+ FOREIGN KEY (materia_id) REFERENCES materias(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS preguntas (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ tema_id INT NOT NULL,
+ creador_id INT NULL,
+ pregunta TEXT NOT NULL,
+ opcion_a VARCHAR(500) NOT NULL,
+ opcion_b VARCHAR(500) NOT NULL,
+ opcion_c VARCHAR(500) NOT NULL,
+ opcion_d VARCHAR(500) NOT NULL,
+ respuesta_correcta CHAR(1) NOT NULL,
+ explicacion TEXT NULL,
+ FOREIGN KEY (tema_id) REFERENCES temas(id) ON DELETE CASCADE,
+ FOREIGN KEY (creador_id) REFERENCES usuarios(id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS intentos (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ usuario_id INT NOT NULL,
+ tema_id INT NOT NULL,
+ puntuacion DECIMAL(5,2) NOT NULL,
+ total_preguntas INT NOT NULL,
+ respuestas_correctas INT NOT NULL,
+ fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE,
+ FOREIGN KEY (tema_id) REFERENCES temas(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS respuestas (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+ intento_id INT NOT NULL,
+ pregunta_id INT NOT NULL,
+ respuesta_seleccionada CHAR(1) NULL,
+ es_correcta TINYINT(1) NOT NULL,
+ FOREIGN KEY (intento_id) REFERENCES intentos(id) ON DELETE CASCADE,
+ FOREIGN KEY (pregunta_id) REFERENCES preguntas(id) ON DELETE CASCADE
+);

@@ -1,0 +1,8 @@
+Coloca aqui las imagenes de Helpbit (PNG, de preferencia con fondo transparente):
+
+  helpbit-feliz.png        -> login, dashboard y resultados buenos
+  helpbit-pensando.png     -> resultados regulares o bajos
+  helpbit-estudiando.png   -> durante los cuestionarios
+  helpbit-descansando.png  -> reservada para pausas
+
+Si falta alguna imagen, StudyMind muestra un osito de respaldo.

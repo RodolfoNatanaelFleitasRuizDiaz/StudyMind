@@ -1,0 +1,44 @@
+ :root{--green:#68b88a;--purple:#8974c5;--ink:#28352e;--bg:#f7f8f5}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif}
+.navbar-brand{color:var(--ink);letter-spacing:-.5px}.navbar-brand span{color:var(--green)}
+.card{border:1px solid #e8ece7;border-radius:18px;box-shadow:0 5px 20px rgba(40,53,46,.04)}
+.btn-success{background:var(--green);border-color:var(--green);color:#173323}
+.btn-success:hover{background:#55a978;border-color:#55a978;color:white}
+.text-purple{color:var(--purple)}.soft-green{background:#eaf4ec}.soft-purple{background:#eee9f8}
+.form-control,.form-select{border-radius:11px;padding:.7rem}
+.hero{background:linear-gradient(120deg,#eaf4ec,#eee9f8);border-radius:22px;padding:2rem}
+.option-label{display:block;border:1px solid #e5e8e3;border-radius:12px;padding:12px;margin:8px 0;cursor:pointer}
+.option-label:hover{border-color:var(--green);background:#f5fbf6}
+
+
+/* ===== Helpbit ===== */
+.helpbit-card{display:flex;align-items:center;gap:1.25rem;background:linear-gradient(120deg,#eaf4ec,#eee9f8);border:1px solid #e3e8e2;border-radius:22px;padding:1.25rem 1.5rem}
+.helpbit-img{width:120px;height:120px;object-fit:contain;flex-shrink:0;animation:hb-float 3.2s ease-in-out infinite}
+.helpbit-img.sm{width:72px;height:72px}
+.helpbit-img.lg{width:170px;height:170px}
+.helpbit-emoji{font-size:64px;line-height:1;flex-shrink:0}
+.helpbit-bubble{position:relative;background:#fff;color:var(--ink);border-radius:16px;padding:.85rem 1.1rem;box-shadow:0 4px 14px rgba(40,53,46,.08)}
+.helpbit-bubble::before{content:"";position:absolute;left:-8px;top:50%;margin-top:-8px;border:8px solid transparent;border-left:0;border-right-color:#fff}
+@keyframes hb-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media (prefers-reduced-motion:reduce){.helpbit-img,.bg-orb{animation:none!important}}
+@media (max-width:575px){.helpbit-card{flex-direction:column;text-align:center}.helpbit-bubble::before{display:none}}
+
+/* ===== Fondo del login / registro ===== */
+body.login-bg{min-height:100vh;position:relative;overflow-x:hidden;background:
+  radial-gradient(circle at 12% 18%,rgba(104,184,138,.38),transparent 38%),
+  radial-gradient(circle at 88% 12%,rgba(137,116,197,.34),transparent 36%),
+  radial-gradient(circle at 82% 90%,rgba(104,184,138,.30),transparent 40%),
+  radial-gradient(circle at 8% 88%,rgba(137,116,197,.26),transparent 38%),
+  linear-gradient(135deg,#f3faf5,#f1eefb)}
+body.login-bg::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(rgba(40,53,46,.10) 1.5px,transparent 1.5px);background-size:28px 28px;
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.7),transparent 85%);mask-image:linear-gradient(180deg,rgba(0,0,0,.7),transparent 85%)}
+body.login-bg .navbar,body.login-bg main{position:relative;z-index:1}
+body.login-bg .navbar{background:transparent!important;border-color:transparent!important}
+body.login-bg .card{background:rgba(255,255,255,.86);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.bg-orb{position:fixed;border-radius:50%;filter:blur(2px);pointer-events:none;z-index:0;animation:orb-drift 14s ease-in-out infinite}
+.bg-orb.o1{width:220px;height:220px;left:-60px;top:30%;background:rgba(104,184,138,.22)}
+.bg-orb.o2{width:160px;height:160px;right:6%;top:18%;background:rgba(137,116,197,.22);animation-delay:-5s}
+.bg-orb.o3{width:260px;height:260px;right:-80px;bottom:-60px;background:rgba(104,184,138,.20);animation-delay:-9s}
+@keyframes orb-drift{0%,100%{transform:translate(0,0)}50%{transform:translate(18px,-22px)}}
+.helpbit-img{mix-blend-mode:multiply}
